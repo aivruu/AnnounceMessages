@@ -45,8 +45,6 @@ public class TextUtil {
 
     if(text.contains("%user_display%")) text = text.replace("%user_display%", player.getDisplayName());
 
-    if(text.contains("%user_address%")) text = text.replace("%user_address%", player.getAddress() + "");
-
     if(text.contains("%user_prefix%")) text = text.replace("%user_prefix%", plugin.chat.getPlayerPrefix(player));
 
     if(text.contains("%user_suffix%")) text = text.replace("%user_suffix%", plugin.chat.getPlayerSuffix(player));
