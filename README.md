@@ -1,2 +1,3 @@
 # AnnounceMessages
-With this plugin you can add customizable messages of Join &amp; Quit for your server, also add multiples actions.
+
+Source code of AnnounceMessages plugin, can download in: https://www.spigotmc.org/resources/announcemessages-1-8-1-18-1.98941/
