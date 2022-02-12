@@ -1,9 +1,8 @@
 notify: true # Notify to the admins if there new updates.
 prefix: "&aAMSG &8-"
 identifier: "$Prefix"
-title_caracter_limit: 16
-subtitle_caracter_limit: 20
-actionbar_caracter_limit: 24
+title_caracter_limit: 20
+actionbar_caracter_limit: 25
 
 sounds:
   permission: UI_BUTTON_CLICK
@@ -28,7 +27,6 @@ messages:
     &l
     &e  /alert &7- &fsend a message to all server.
     &e  /title &7- &fSend a title.
-    &e  /subtitle &7- &fSend a subtitle.
     &e  /actionbar &7- &fSend a actionbar.
     &8&m ----------------------------------
     &l
@@ -38,15 +36,12 @@ messages:
   groups: "$Prefix &bgroups.yml &7was reloaded successful."
 
   title_usage: "$Prefix &7Usage example: &b/title &aHello&7."
-  subtitle_usage: "$Prefix &7Usage example: &b/subtitle &aHello&7."
   actionbar_usage: "$Prefix &7Usage example: &b/actionbar &6Hello&7."
 
   title_max_caracter_limit: "$Prefix &7the maximum limit of caracters for the titles is of &b%caracters%&7."
-  subtitle_max_caracter_limit: "$Prefix &7the maximum limit of caracters for the titles is of &b%caracters%&7."
   actionbar_max_caracter_limit: "$Prefix &7the maximum limit of caracters for the actionbar is of &b%caracters%&7."
 
   title_sended: "&aTitle sended!"
-  subtitle_sended: "&bSubtitle sended!"
   actionbar_sended: "&eActionBar sended!"
 
   alert_format: "&8[&4Alert&8] &f"
