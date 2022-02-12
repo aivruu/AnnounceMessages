@@ -12,7 +12,7 @@ permissions:
       - amsg.command.reload
       - amsg.command.alert
       - amsg.command.title
-      - amsg.command.actionbar
+      - amsg.command.actionbar /* Not in use */
       - amsg.log.update
 commands:
   announcemessages:
