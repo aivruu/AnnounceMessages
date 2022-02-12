@@ -1,0 +1,95 @@
+notify: true # Notify to the admins if there new updates.
+prefix: "&aAMSG &8-"
+identifier: "$Prefix"
+title_caracter_limit: 16
+subtitle_caracter_limit: 20
+actionbar_caracter_limit: 24
+
+sounds:
+  permission: UI_BUTTON_CLICK
+  reload: ENTITY_EXPERIENCE_ORB_PICKUP
+  volume: 1.0
+  pitch: 1.0
+
+
+messages:
+  permission: "$Prefix &cyou don't have permission."
+  console: "$Prefix &cthis command can't be executed in console."
+  file: "$Prefix &cthis file doesn't exists."
+  command: "$Prefix &cthis command not has been added to plugin."
+  commands_help: |-
+    &l
+    &8&m ----------------------------------
+    &a          AnnounceMessages &b2.0
+    &l
+    &e  /amsg &7- &fmain command.
+    &e  /amsg reload &7- &freload the files.
+    &e  /amsg help &7- &fshow the commands list.
+    &l
+    &e  /alert &7- &fsend a message to all server.
+    &e  /title &7- &fSend a title.
+    &e  /subtitle &7- &fSend a subtitle.
+    &e  /actionbar &7- &fSend a actionbar.
+    &8&m ----------------------------------
+    &l
+
+  reload: "$Prefix &7to reload a file insert your name with format. Example: &bconfig.yml"
+  config: "$Prefix &bconfig.yml &7was reloaded successful."
+  groups: "$Prefix &bgroups.yml &7was reloaded successful."
+
+  title_usage: "$Prefix &7Usage example: &b/title &aHello&7."
+  subtitle_usage: "$Prefix &7Usage example: &b/subtitle &aHello&7."
+  actionbar_usage: "$Prefix &7Usage example: &b/actionbar &6Hello&7."
+
+  title_max_caracter_limit: "$Prefix &7the maximum limit of caracters for the titles is of &b%caracters%&7."
+  subtitle_max_caracter_limit: "$Prefix &7the maximum limit of caracters for the titles is of &b%caracters%&7."
+  actionbar_max_caracter_limit: "$Prefix &7the maximum limit of caracters for the actionbar is of &b%caracters%&7."
+
+  title_sended: "&aTitle sended!"
+  subtitle_sended: "&bSubtitle sended!"
+  actionbar_sended: "&eActionBar sended!"
+
+  alert_format: "&8[&4Alert&8] &f"
+  alert_usage: "$Prefix &7introduce a message to send."
+
+  update_announce: "&7There are a new version available: &b%version%&7. &ehttps://www.spigotmc.org/resources/announcemessages-1-8-1-18-1.98941/updates"
+  error_update: "&aAMSG &8- &can occurred a error to check the versions."
+
+  motd_message: |-
+    &l
+    &e            ServerName Network
+    &l
+    &7  Welcome to server, we hope you have fun!
+    &7    Remember invite to your &afriends&7.
+    &l
+
+  networks:
+    enable: true
+    first:
+      name: "&6      Store"
+      url: "https://store.servername.net/"
+      description: |-
+        &l
+        &7Click to get the link of the &aStore&7.
+        &l
+    second:
+      name: "&b        Twitter"
+      url: "https://twitter.com/@ServerName"
+      description: |-
+        &l
+        &7Click to get the link of &aTwitter&7.
+        &l
+    third:
+      name: "&9        Discord"
+      url: "https://discord.gg/servername"
+      description: |-
+        &l
+        &7Click to get the link of &aDiscord&7.
+        &l
+    four:
+      name: "&c      Youtube"
+      url: "https://youtube.com/servername"
+      description: |-
+        &l
+        &7Click to get the link of &aYoutube&7.
+        &l

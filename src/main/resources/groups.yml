@@ -1,0 +1,36 @@
+# Sounds-doc: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
+# Actions: |-
+#
+#   <$Effect> [name];[duration];[amplifier] - Give a effect to player.
+#   <$Remove> - Remove all the PotionEffects of player.
+#   <$Titles> [title];[subtitle];[fadeIn];[stay];[fadeOut] - Send a title and subtitle to player.
+#   <$Title> [title];[fadeIn];[stay];[fadeOut] - Send only a title to player.
+#   <$ActionBar> [message] - Send a actionbar to player.
+#   <$Sound> [Sound_ID];[volume];[pitch] - Reproduce a sound.
+#   <$Firework> [flicker];[trail];[effect];[power] - Launch a firework.
+#   <$Message> [message] - Send a message to player.
+#   <$Console> [message] - Send a message to the console.
+#   <$Command> [command] - Execute the command from an player.
+#   <$ConsoleCMD> [command] - Execute the command from the console.
+#
+groups:
+  enable_join: true # Send the join message?
+  enable_quit: true # Send the quit message?
+
+  default: # Group rank name.
+    join_message: "&e%user_name% &8- &fhas joined to server." # Message Join Format, supports Placeholders & Hex Colors.
+    quit_message: "&e%user_name% &8- &fif has left the server." # Message Quit Format, supports Placeholders & Hex Colors.
+    join_actions:
+      - "<$Sound> ENTITY_EXPERIENCE_ORB_PICKUP;10;1"
+    quit_actions:
+  admin:
+    join_message: "&b%user_level% &8| %user_prefix% &e%user_name% &8- &fhas joined to server."
+    quit_message: "&b%user_level% &8| %user_prefix% &e%user_name% &8- &fif has left the server."
+    join_actions:
+      - "<$Sound> ENTITY_EXPERIENCE_ORB_PICKUP;10;1"
+      - "<$Effect> SPEED;1000000;1"
+      - "<$Titles> &aWelcome;&b%user_name% &fto server!;20;40;20"
+      - "<$ActionBar> &e¡Welcome to server!"
+      - "<$Firework> true;true;CREEPER;5"
+    quit_actions:
+      - "<$Remove> SPEED"

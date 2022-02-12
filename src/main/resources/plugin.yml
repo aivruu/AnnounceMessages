@@ -1,0 +1,29 @@
+name: AnnounceMessages
+version: '${version}'
+main: am.alqj.AnnounceMessagesPlugin
+api-version: 1.13
+authors: [ Alqj ]
+description: A new version of AnnounceMessages with multiples improvements.
+website: https://www.spigotmc.org/members/ialqjdv.1471925/
+permissions:
+  amsg:
+    children:
+      - amsg.command.list
+      - amsg.command.reload
+      - amsg.command.alert
+      - amsg.command.title
+      - amsg.command.actionbar
+      - amsg.log.update
+commands:
+  announcemessages:
+    aliases: [amsg]
+    description: Main plugin command.
+  title:
+    aliases: [titulo]
+    description: Send a title to all server.
+  alert:
+    aliases: [bc, broadcast, announce, anuncio]
+    description: Send a message to all server.
+  actionbar:
+    aliases: []
+    description: Send a actionbar to all server.
