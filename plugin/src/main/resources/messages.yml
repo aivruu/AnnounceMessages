@@ -1,0 +1,26 @@
+messages:
+  no-permission: "<prefix> &cYou don't have permission!"
+  no-file: "<prefix> &cThat file doesn't exists!"
+  no-command: "<prefix> &cThat command is not added yet!"
+
+  offline-target: "<prefix> &cThe player specified isn't connected!"
+
+  help:
+    - "&bAnnounceMessages &8[&73.0&8] &f| &7Available Commands:"
+    - " &7- &a/announcemessages help &fShows this message."
+    - " &7- &a/announcemessages reload &fReload the plugin files."
+    - " &7- &a/title &fSends a title to a player or all the server."
+    - " &7- &a/actionbar &fSends an actionbar to a player or all the server."
+    - " &7- &a/alert &fSends an announcement to all the server."
+
+  reload-all: "<prefix> &a&lALL FILES RELOADED! &eAll the configuration files has been reloaded."
+  reload-config: "<prefix> &6&lCONFIGURATION RELOADED! &eThe config.yml file has been reloaded."
+  reload-messages: "<prefix> &b&lMESSAGES RELOADED! &eThe messages.yml file has been reloaded."
+
+  title-usage: "<prefix> &cMissing arguments! Example: &e/title InitSync/all Hello! This is the subtitle!"
+  actionbar-usage: "<prefix> &cMissing arguments! Example: &e/actionbar InitSync/all Hello! 100 <- "
+
+  alert-format: "&c&lANNOUNCEMENT &8> "
+  alert-usage: "<prefix> &cMissing arguments! Introduce a message for send!"
+
+  update-pending: "&fThere are a new version available &7-> &e<version>"

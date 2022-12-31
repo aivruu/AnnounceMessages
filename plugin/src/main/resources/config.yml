@@ -1,0 +1,52 @@
+config:
+  # Plugin Messages Prefix.
+  prefix: "&bAnnounceMessages &8>"
+
+  # Notify to the admins if there are new updates.
+  notify: true
+
+  sounds:
+    # Sounds ID's.
+    permission: ENTITY_ITEM_BREAK
+    reload: ENTITY_EXPERIENCE_ORB_PICKUP
+
+    # Sounds Volume Level
+    volume: 1
+
+  announcements:
+    # Allow send the motd message?
+    allow-motd: true
+
+    motd: |-
+      &l
+      &e             Your&6Server
+      &l
+      &7  Welcome to server, we hope you have fun!
+      &7    Remember invite to your &afriends&7.
+      &l
+      &6  Store: &ehttps://store.yourServer.com
+      &b  Twitter: &ehttps://twitter.com/@yourServer
+      &9  Discord: &ehttps://discord.io/yourServer
+      &l
+
+    groups:
+      # Group rank name.
+      default:
+        # Group Join Message.
+        join: "&8[&a+&8] &e%player_name% &8- &fHas joined to server!"
+
+        # Group Quit Message
+        quit: "&8[&c-&8] &e%player_name% &8- &fIf has left the server!"
+
+        # Group Join Actions
+        actions:
+          - "[sound] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
+      admin:
+        join: "&8[&a+&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fHas joined to server!."
+        quit: "&8[&c-&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fif has left the server."
+        actions:
+          - "[sound] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
+          - "[potion_effect] SPEED;max;1"
+          - "[title] &aWelcome;&b%user_name% &fto server!;20;60;20"
+          - "[actionbar] &e¡Welcome to server!"
+          - "[firework] true;true;CREEPER;5"
