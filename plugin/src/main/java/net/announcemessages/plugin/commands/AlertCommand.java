@@ -1,5 +1,6 @@
 package net.announcemessages.plugin.commands;
 
+import net.announcemessages.api.events.ServerAnnouncementEvent;
 import net.announcemessages.plugin.AnnounceMessages;
 import net.announcemessages.plugin.enums.Permissions;
 import net.announcemessages.plugin.util.LogUtils;
@@ -49,8 +50,13 @@ public class AlertCommand implements CommandExecutor {
 			player.sendMessage(configurationHandler.text("", "messages.yml", "messages.alert-usage", true).replace("<prefix>", prefix));
 			return false;
 		}
-	
-		Bukkit.broadcastMessage(configurationHandler.text("", "messages.yml", "messages.alert-format", true) + TextUtils.colorize(String.join(" ", args)));
+
+		String message = configurationHandler.text("", "messages.yml", "messages.alert-format", true) + TextUtils.colorize(String.join(" ", args));
+		
+		ServerAnnouncementEvent event = new ServerAnnouncementEvent(message);
+		if (event.isCancelled()) return false;
+		
+		Bukkit.broadcastMessage(message);
 		return false;
 	}
 }
