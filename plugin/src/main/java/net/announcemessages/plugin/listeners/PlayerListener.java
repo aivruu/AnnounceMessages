@@ -26,6 +26,8 @@ public class PlayerListener implements Listener {
 		
 		event.setJoinMessage(announceManager.getJoinMessage(player));
 		
+		announceManager.performAction(player);
+		
 		if (configurationHandler.condition("", "config.yml", "config.announcements.allow-motd")) {
 			configurationHandler.textList("", "config.yml", "config.announcements.motd", true).forEach(player::sendMessage);
 		}
