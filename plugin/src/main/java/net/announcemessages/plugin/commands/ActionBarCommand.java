@@ -58,7 +58,7 @@ public class ActionBarCommand implements CommandExecutor {
 			}
 			
 			Bukkit.getOnlinePlayers().forEach(target -> {
-				Utils.sendActionBar(plugin, target, TextUtils.colorize(String.join(" ", args)), 100);
+				Utils.sendActionBar(plugin, target, TextUtils.colorize(String.join(" ", args).replace(args[0], "")), 100);
 			});
 			return false;
 		}
@@ -74,7 +74,7 @@ public class ActionBarCommand implements CommandExecutor {
 			return false;
 		}
 		
-		Utils.sendActionBar(plugin, target, TextUtils.colorize(String.join(" ", args)), 100);
+		Utils.sendActionBar(plugin, target, TextUtils.colorize(String.join(" ", args).replace(args[0], "")), 100);
 		return false;
 	}
 }
