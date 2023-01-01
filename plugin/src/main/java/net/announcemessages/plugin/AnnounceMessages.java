@@ -56,12 +56,12 @@ extends JavaPlugin {
 	
 	@Override
 	public void onLoad() {
+		plugin = this;
+		
 		LogUtils.info(
 			 "Booting up plugin internal components...",
 			 "Developed by InitSync - " + release
 		);
-		
-		plugin = this;
 		
 		configurationManager = XConfigBukkit.manager(plugin);
 		configurationHandler = XConfigBukkit.handler(configurationManager);
