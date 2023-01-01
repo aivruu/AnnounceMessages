@@ -117,8 +117,15 @@ extends JavaPlugin {
 		
 		if (configurationHandler.condition("", "config.yml", "config.notify")) {
 			HandlerFactory.newUpdateHandler(98941).check(latestVersion -> {
-				if (latestVersion.equals(release)) LogUtils.info("There is not a new update pending.");
-				else LogUtils.info("There is a new update available: " + latestVersion);
+				int latestRelease = Integer.parseInt(latestVersion.split("\\.", 2)[0]);
+				int currentRelease = Integer.parseInt(release.split("\\.", 2)[0]);
+				
+				if (latestRelease > currentRelease) {
+					LogUtils.info("There is a new update available: " + latestVersion);
+					return;
+				}
+				
+				if (latestRelease == currentRelease) LogUtils.info("There is not a new update pending.");
 			});
 		}
 	}
