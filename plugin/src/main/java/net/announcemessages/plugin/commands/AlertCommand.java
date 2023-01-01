@@ -54,6 +54,7 @@ public class AlertCommand implements CommandExecutor {
 		String message = configurationHandler.text("", "messages.yml", "messages.alert-format", true) + TextUtils.colorize(String.join(" ", args));
 		
 		ServerAnnouncementEvent event = new ServerAnnouncementEvent(message);
+		Bukkit.getPluginManager().callEvent(event);
 		if (event.isCancelled()) return false;
 		
 		Bukkit.broadcastMessage(message);
