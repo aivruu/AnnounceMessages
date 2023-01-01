@@ -34,7 +34,7 @@ implements AnnounceManager {
 		ConfigurationSection section = configurationHandler.configSection("", "config.yml", "config.announcements.groups." + getPlayerGroup(player.getUniqueId()));
 		if (section == null) return "";
 		
-		return PlaceholderUtils.parse(player, TextUtils.colorize(section.getString("join")));
+		return TextUtils.colorize(PlaceholderUtils.parse(player, section.getString("join")));
 	}
 	
 	@Override
@@ -42,7 +42,7 @@ implements AnnounceManager {
 		ConfigurationSection section = configurationHandler.configSection("", "config.yml", "config.announcements.groups." + getPlayerGroup(player.getUniqueId()));
 		if (section == null) return "";
 		
-		return PlaceholderUtils.parse(player, TextUtils.colorize(section.getString("quit")));
+		return TextUtils.colorize(PlaceholderUtils.parse(player, section.getString("quit")));
 	}
 	
 	@Override
