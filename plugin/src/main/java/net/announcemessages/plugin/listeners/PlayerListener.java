@@ -1,9 +1,6 @@
 package net.announcemessages.plugin.listeners;
 
 import net.announcemessages.api.managers.AnnounceManager;
-import net.announcemessages.plugin.AnnounceMessages;
-import net.announcemessages.plugin.enums.Permissions;
-import net.announcemessages.plugin.factories.HandlerFactory;
 import net.xconfig.bukkit.config.BukkitConfigurationHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -31,14 +28,6 @@ public class PlayerListener implements Listener {
 		
 		if (configurationHandler.condition("", "config.yml", "config.announcements.allow-motd")) {
 			configurationHandler.textList("", "config.yml", "config.announcements.motd", true).forEach(player::sendMessage);
-		}
-		
-		if (configurationHandler.condition("", "config.yml", "config.notify") && player.hasPermission(Permissions.UPDATE_LOG.getPermission())) {
-			HandlerFactory.newUpdateHandler(98941).check(latestVersion -> {
-				if (latestVersion.equals(AnnounceMessages.getPlugin().release)) return;
-				
-				player.sendMessage(configurationHandler.text("", "messages.yml", "messages.update-pending", true).replace("<version>", latestVersion));
-			});
 		}
 	}
 	
