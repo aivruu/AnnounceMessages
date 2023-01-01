@@ -5,8 +5,7 @@ public enum Permissions {
 	COMMAND_RELOAD("announcemessages.reload"),
 	COMMAND_ALERT("announcemessages.alert"),
 	COMMAND_TITLE("announcemessages.title"),
-	COMMAND_ACTIONBAR("announcemessages.actionbar"),
-	UPDATE_LOG("announcemessages.update");
+	COMMAND_ACTIONBAR("announcemessages.actionbar");
 	
 	private final String permission;
 	
