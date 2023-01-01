@@ -9,6 +9,7 @@ import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -31,14 +32,16 @@ implements ActionManager {
 	}
 	
 	@Override
-	public void execute(Player player, String container) {
+	public void execute(Player player, List<String> containers) {
 		Preconditions.checkNotNull(player, "The player is null.");
-		Preconditions.checkArgument(!container.isEmpty(), "The container is null.");
+		Preconditions.checkNotNull(containers, "The actions list is null.");
 		
-		actions.get(ActionContext.valueOf(StringUtils.substringBetween(container, "[", "]").toUpperCase()))
-			 .execute(plugin, player, container.contains(" ")
-				  ? container.split(" ", 2)[1]
-				  : "");
+		containers.forEach(container -> {
+			actions.get(ActionContext.valueOf(StringUtils.substringBetween(container, "[", "]").toUpperCase()))
+				 .execute(plugin, player, container.contains(" ")
+					  ? container.split(" ", 2)[1]
+					  : "");
+		});
 	}
 	
 	@Override
