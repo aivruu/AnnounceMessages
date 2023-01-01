@@ -35,7 +35,7 @@ public class PluginCommand implements CommandExecutor {
 		Player player = (Player) sender;
 		if (args.length == 0) {
 			player.sendMessage(prefix + TextUtils.colorize(" &a&lUPDATE: &eImprovements & Optimization!"));
-			player.sendMessage(prefix + TextUtils.colorize(" &fRunning on " + Bukkit.getServer().getBukkitVersion()));
+			player.sendMessage(prefix + TextUtils.colorize(" &fRunning on &a" + Bukkit.getServer().getBukkitVersion()));
 			player.sendMessage(prefix + TextUtils.colorize(" &fDeveloped by &aInitSync &7- &e" + AnnounceMessages.getPlugin().release));
 			return false;
 		}
