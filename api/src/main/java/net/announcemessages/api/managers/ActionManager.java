@@ -13,15 +13,9 @@ public interface ActionManager {
 		}
 	}
 	
-	default void execute(Player player, List<String> containers) {
-		for (String container : containers) {
-			execute(player, container);
-		}
-	}
-	
 	void register(ActionContext context, ActionExecutable executable);
 	
-	void execute(Player player, String container);
+	void execute(Player player, List<String> containers);
 	
 	void unregister(ActionContext context);
 	
