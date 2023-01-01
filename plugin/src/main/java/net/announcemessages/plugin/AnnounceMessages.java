@@ -65,12 +65,10 @@ extends JavaPlugin {
 		
 		configurationManager = XConfigBukkit.manager(plugin);
 		configurationHandler = XConfigBukkit.handler(configurationManager);
-		luckPerms = LuckPermsProvider.get();
 		adaptManager = XTitle.newAdaptManager();
 		adaptManager.findAdapt();
 		titleManager = XTitle.newTitleManager(adaptManager.getAdapt());
 		actionManager = ManagerFactory.newActionManager(plugin);
-		announceManager = ManagerFactory.newAnnounceManager(configurationHandler, luckPerms.getUserManager(), actionManager);
 	}
 	
 	@Override
@@ -78,6 +76,9 @@ extends JavaPlugin {
 		long startTime = System.currentTimeMillis();
 		
 		configurationManager.build("", "config.yml", "messages.yml");
+		
+		luckPerms = LuckPermsProvider.get();
+		announceManager = ManagerFactory.newAnnounceManager(configurationHandler, luckPerms.getUserManager(), actionManager);
 		
 		actionManager.register(
 			 new SoundAction(),
