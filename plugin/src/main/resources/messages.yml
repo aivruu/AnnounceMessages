@@ -6,7 +6,7 @@ messages:
   offline-target: "<prefix> &cThe player specified isn't connected!"
 
   help:
-    - "&bAnnounceMessages &8[&73.0&8] &f| &7Available Commands:"
+    - "&bAnnounceMessages &8[&73.0&8] &7| Available Commands"
     - " &7- &a/announcemessages help &fShows this message."
     - " &7- &a/announcemessages reload &fReload the plugin files."
     - " &7- &a/title &fSends a title to a player or all the server."
