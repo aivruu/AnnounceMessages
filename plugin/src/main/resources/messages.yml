@@ -17,8 +17,8 @@ messages:
   reload-config: "<prefix> &6&lCONFIGURATION RELOADED! &eThe config.yml file has been reloaded."
   reload-messages: "<prefix> &b&lMESSAGES RELOADED! &eThe messages.yml file has been reloaded."
 
-  title-usage: "<prefix> &cMissing arguments! Example: &e/title InitSync/all Hello! This is the subtitle!"
-  actionbar-usage: "<prefix> &cMissing arguments! Example: &e/actionbar InitSync/all Hello! 100 <- "
+  title-usage: "<prefix> &cMissing arguments! Example: &e/title <player>/<all> Hello! This is the subtitle!"
+  actionbar-usage: "<prefix> &cMissing arguments! Example: &e/actionbar <player>/<all> Hello!"
 
   alert-format: "&c&lANNOUNCEMENT &8> "
   alert-usage: "<prefix> &cMissing arguments! Introduce a message for send!"

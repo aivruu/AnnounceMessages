@@ -17,17 +17,17 @@ config:
     # Allow send the motd message?
     allow-motd: true
 
-    motd: |-
-      &l
-      &e             Your&6Server
-      &l
-      &7  Welcome to server, we hope you have fun!
-      &7    Remember invite to your &afriends&7.
-      &l
-      &6  Store: &ehttps://store.yourServer.com
-      &b  Twitter: &ehttps://twitter.com/@yourServer
-      &9  Discord: &ehttps://discord.io/yourServer
-      &l
+    motd:
+      - ""
+      - "&e             Your&6Server"
+      - ""
+      - "&7  Welcome to server, we hope you have fun!"
+      - "&7    Remember invite to your &afriends&7."
+      - ""
+      - "&6  Store: &ehttps://store.yourServer.com"
+      - "&b  Twitter: &ehttps://twitter.com/@yourServer"
+      - "&9  Discord: &ehttps://discord.io/yourServer"
+      - ""
 
     groups:
       # Group rank name.
@@ -42,8 +42,8 @@ config:
         actions:
           - "[SOUND] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
       admin:
-        join: "&8[&a+&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fHas joined to server!."
-        quit: "&8[&c-&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fif has left the server."
+        join: "&8[&a+&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fHas joined to server!"
+        quit: "&8[&c-&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fif has left the server!"
         actions:
           - "[SOUND] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
           - "[POTION_EFFECT] SPEED;max;1"
