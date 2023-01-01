@@ -40,13 +40,13 @@ config:
 
         # Group Join Actions
         actions:
-          - "[sound] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
+          - "[SOUND] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
       admin:
         join: "&8[&a+&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fHas joined to server!."
         quit: "&8[&c-&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fif has left the server."
         actions:
-          - "[sound] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
-          - "[potion_effect] SPEED;max;1"
-          - "[title] &aWelcome;&b%user_name% &fto server!;20;60;20"
-          - "[actionbar] &e¡Welcome to server!"
-          - "[firework] true;true;CREEPER;5"
+          - "[SOUND] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
+          - "[POTION_EFFECT] SPEED;max;1"
+          - "[TITLE] &aWelcome;&b%user_name% &fto server!;20;60;20"
+          - "[ACTION_BAR] &e¡Welcome to server!"
+          - "[FIREWORK] true;true;CREEPER;5"
