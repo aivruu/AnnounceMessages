@@ -15,10 +15,12 @@ import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
-public class PluginCommand implements CommandExecutor {
+public class MainCommand
+implements CommandExecutor {
 	private final BukkitConfigurationModel configurationManager;
 	private final BukkitConfigurationHandler configurationHandler;
-	public PluginCommand(BukkitConfigurationModel configurationManager, BukkitConfigurationHandler configurationHandler) {
+	
+	public MainCommand(BukkitConfigurationModel configurationManager, BukkitConfigurationHandler configurationHandler) {
 		this.configurationManager = Objects.requireNonNull(configurationManager, "The BukkitConfigurationModel object is null.");
 		this.configurationHandler = Objects.requireNonNull(configurationHandler, "The BukkitConfigurationHandler object is null.");
 	}

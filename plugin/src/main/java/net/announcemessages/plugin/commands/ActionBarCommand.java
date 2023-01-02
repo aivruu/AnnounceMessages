@@ -4,19 +4,18 @@ import net.announcemessages.plugin.AnnounceMessages;
 import net.announcemessages.plugin.enums.Permissions;
 import net.announcemessages.plugin.util.LogUtils;
 import net.announcemessages.plugin.util.Utils;
-import net.announcemessages.plugin.xseries.XSound;
 import net.xconfig.bukkit.config.BukkitConfigurationHandler;
 import net.xconfig.bukkit.utils.TextUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
-public class ActionBarCommand implements CommandExecutor {
+public class ActionBarCommand
+implements CommandExecutor {
 	private final AnnounceMessages plugin;
 	private final BukkitConfigurationHandler configurationHandler;
 	
