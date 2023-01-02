@@ -1,11 +1,13 @@
 package net.announcemessages.plugin.managers;
 
+import net.announcemessages.api.events.ActionListExecuteEvent;
 import net.announcemessages.api.managers.ActionManager;
 import net.announcemessages.api.managers.AnnounceManager;
 import net.announcemessages.plugin.util.PlaceholderUtils;
 import net.luckperms.api.model.user.UserManager;
 import net.xconfig.bukkit.config.BukkitConfigurationHandler;
 import net.xconfig.bukkit.utils.TextUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
@@ -49,6 +51,10 @@ implements AnnounceManager {
 	public void performAction(Player player) {
 		ConfigurationSection section = configurationHandler.configSection("", "config.yml", "config.announcements.groups." + getPlayerGroup(player.getUniqueId()));
 		if (section == null) return;
+		
+		ActionListExecuteEvent event = new ActionListExecuteEvent(player, section.getStringList("actions"));
+		Bukkit.getPluginManager().callEvent(event);
+		if (event.isCancelled()) return;
 		
 		actionManager.execute(player, section.getStringList("actions"));
 	}
