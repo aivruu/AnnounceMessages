@@ -12,7 +12,7 @@ import net.announcemessages.plugin.actions.SoundAction;
 import net.announcemessages.plugin.actions.TitleAction;
 import net.announcemessages.plugin.commands.ActionBarCommand;
 import net.announcemessages.plugin.commands.AlertCommand;
-import net.announcemessages.plugin.commands.PluginCommand;
+import net.announcemessages.plugin.commands.MainCommand;
 import net.announcemessages.plugin.commands.TitleCommand;
 import net.announcemessages.plugin.factories.HandlerFactory;
 import net.announcemessages.plugin.factories.LoaderFactory;
@@ -54,6 +54,22 @@ extends JavaPlugin {
 		return titleManager;
 	}
 	
+	public BukkitConfigurationModel getConfigurationManager() {
+		return configurationManager;
+	}
+	
+	public BukkitConfigurationHandler getConfigurationHandler() {
+		return configurationHandler;
+	}
+	
+	public ActionManager getActionManager() {
+		return actionManager;
+	}
+	
+	public AnnounceManager getAnnounceManager() {
+		return announceManager;
+	}
+	
 	@Override
 	public void onLoad() {
 		plugin = this;
@@ -81,11 +97,11 @@ extends JavaPlugin {
 		announceManager = ManagerFactory.newAnnounceManager(configurationHandler, luckPerms.getUserManager(), actionManager);
 		
 		actionManager.register(
-			 new SoundAction(),
-			 new PotionEffectAction(),
-			 new TitleAction(),
-			 new ActionBarAction(),
-			 new FireworkAction(),
+			 new SoundAction(configurationHandler),
+			 new PotionEffectAction(configurationHandler),
+			 new TitleAction(configurationHandler),
+			 new ActionBarAction(configurationHandler),
+			 new FireworkAction(configurationHandler),
 			 new CommandAction(),
 			 new BroadcastAction(),
 			 new MessageAction()
@@ -93,7 +109,7 @@ extends JavaPlugin {
 		
 		CommandLoader.Builder commandLoader = LoaderFactory.newCommandLoader(plugin);
 		commandLoader.command("announcemessages")
-			 .executor(new PluginCommand(configurationManager, configurationHandler))
+			 .executor(new MainCommand(configurationManager, configurationHandler))
 			 .build();
 		commandLoader.command("title")
 			 .executor(new TitleCommand(configurationHandler))
@@ -116,7 +132,7 @@ extends JavaPlugin {
 		);
 		
 		if (configurationHandler.condition("", "config.yml", "config.notify")) {
-			HandlerFactory.newUpdateHandler(98941).check(latestVersion -> {
+			HandlerFactory.newUpdateHandler(configurationHandler, 98941).check(latestVersion -> {
 				int latestRelease = Integer.parseInt(latestVersion.split("\\.", 2)[0]);
 				int currentRelease = Integer.parseInt(release.split("\\.", 2)[0]);
 				
