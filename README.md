@@ -1,4 +1,4 @@
-# ⚙️ | AnnounceMessages
+# 🎉 | AnnounceMessages
 AnnounceMessages is a plugin that allows you customize the messages when the players join to server or leave it, can add colors, placeholders, actions and create your own formats!
 
 [![CodeFactor](https://www.codefactor.io/repository/github/initsync/announcemessages/badge)](https://www.codefactor.io/repository/github/initsync/announcemessages)
