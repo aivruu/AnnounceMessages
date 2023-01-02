@@ -4,14 +4,20 @@ import net.announcemessages.api.actions.ActionContext;
 import net.announcemessages.api.actions.ActionExecutable;
 import net.announcemessages.plugin.util.LogUtils;
 import net.announcemessages.plugin.xseries.XSound;
+import net.xconfig.bukkit.config.BukkitConfigurationHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class SoundAction
 implements ActionExecutable {
-	public SoundAction() {}
+	private final BukkitConfigurationHandler configurationHandler;
+	
+	public SoundAction(BukkitConfigurationHandler configurationHandler) {
+		this.configurationHandler = Objects.requireNonNull(configurationHandler, "The BukkitConfigurationHandler object is null.");
+	}
 	
 	@Override
 	public ActionContext getContext() {
@@ -35,6 +41,7 @@ implements ActionExecutable {
 			pitch = Integer.parseInt(parts[2]);
 		} catch (NumberFormatException exception) {
 			LogUtils.error("Cannot parse the sound volume levels because the values are not valid.");
+			if (configurationHandler.condition("", "config.yml", "config.debug-mode")) exception.printStackTrace();
 			return;
 		}
 		

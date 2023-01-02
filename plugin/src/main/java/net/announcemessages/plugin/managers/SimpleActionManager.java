@@ -36,12 +36,14 @@ implements ActionManager {
 		Preconditions.checkNotNull(player, "The player is null.");
 		Preconditions.checkNotNull(containers, "The actions list is null.");
 		
-		containers.forEach(container -> {
+		for (String container : containers) {
+			if (!container.contains(";")) continue;
+			
 			actions.get(ActionContext.valueOf(StringUtils.substringBetween(container, "[", "]").toUpperCase()))
 				 .execute(plugin, player, container.contains(" ")
 					  ? container.split(" ", 2)[1]
 					  : "");
-		});
+		}
 	}
 	
 	@Override

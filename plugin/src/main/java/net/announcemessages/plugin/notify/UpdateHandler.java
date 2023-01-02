@@ -1,16 +1,20 @@
 package net.announcemessages.plugin.notify;
 
 import net.announcemessages.plugin.util.LogUtils;
+import net.xconfig.bukkit.config.BukkitConfigurationHandler;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class UpdateHandler {
+	private final BukkitConfigurationHandler configurationHandler;
 	private final int resourceNumber;
 	
-	public UpdateHandler(int resourceNumber) {
+	public UpdateHandler(BukkitConfigurationHandler configurationHandler, int resourceNumber) {
+		this.configurationHandler = Objects.requireNonNull(configurationHandler, "The BukkitConfigurationHandler object is null.");
 		this.resourceNumber = resourceNumber;
 	}
 	
@@ -20,7 +24,7 @@ public class UpdateHandler {
 			if (scanner.hasNext()) consumer.accept(scanner.next());
 		} catch (IOException exception) {
 			LogUtils.error("Unable to check for updates available.");
-			exception.printStackTrace();
+			if (configurationHandler.condition("", "config.yml", "config.debug-mode")) exception.printStackTrace();
 		}
 	}
 }
