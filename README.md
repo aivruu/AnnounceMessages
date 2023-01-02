@@ -3,10 +3,10 @@ AnnounceMessages is a plugin that allows you customize the messages when the pla
 
 [![CodeFactor](https://www.codefactor.io/repository/github/initsync/announcemessages/badge)](https://www.codefactor.io/repository/github/initsync/announcemessages)
 
-# 🛠️ | Installation
-XTools installation is very easy, you can import the library using a dependency manager such as Maven or Gradle. Or just add the jar to BuildPath of your project.
+# 🛠️ | API Installation
+AnnounceMessagesAPI installation is very easy, you can import the plugin API using a dependency manager such as Maven or Gradle. Or just add the jar to BuildPath of your project.
 
-To get the jar, either download it from [GitHub](https://github.com/InitSync/XConfig/releases) or [Spigot](https://www.spigotmc.org/resources/announcemessages-1-8-1-19-3.98941/). Or just [Build it locally](https://github.com/InitSync/XConfig#--build)
+To get the jar, either download it from [GitHub](https://github.com/InitSync/XConfig/releases) releases. Or [Build it locally](https://github.com/InitSync/XConfig#--build)
 
 ```Gradle
 repositories {
@@ -22,7 +22,8 @@ dependencies {
 ```Xml
 <repositories>
   <repository>
-    <id>https://jitpack.io/</id>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io/</url>
   </repository>
 </repositories>
 
