@@ -12,7 +12,8 @@ import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
-public class TitleCommand implements CommandExecutor {
+public class TitleCommand
+implements CommandExecutor {
 	private final BukkitConfigurationHandler configurationHandler;
 	
 	public TitleCommand(BukkitConfigurationHandler configurationHandler) {
