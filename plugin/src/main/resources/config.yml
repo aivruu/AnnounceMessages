@@ -2,6 +2,10 @@ config:
   # Plugin Messages Prefix.
   prefix: "&bAnnounceMessages &8>"
 
+  # Do you want to enable the debug mode?
+  # This will show the stacktrace of error happened.
+  debug-mode: false
+
   # Notify to the admins if there are new updates.
   notify: true
 
@@ -39,14 +43,13 @@ config:
         quit: "&8[&c-&8] &e%player_name% &8- &fIf has left the server!"
 
         # Group Join Actions
-        actions:
-          - "[SOUND] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
+        actions: ["[SOUND] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"]
       admin:
         join: "&8[&a+&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fHas joined to server!"
-        quit: "&8[&c-&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fif has left the server!"
+        quit: "&8[&c-&8] &b%player_level% &8| %vault_prefix% &e%player_name% &8- &fIf has left the server!"
         actions:
           - "[SOUND] ENTITY_EXPERIENCE_ORB_PICKUP;1;1"
           - "[POTION_EFFECT] SPEED;max;1"
           - "[TITLE] &aWelcome;&b%user_name% &fto server!;20;60;20"
-          - "[ACTION_BAR] &e¡Welcome to server!"
+          - "[ACTION_BAR] 100;&eWelcome to server!"
           - "[FIREWORK] true;true;CREEPER;5"
