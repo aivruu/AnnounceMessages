@@ -28,6 +28,8 @@ implements ActionExecutable {
 	
 	@Override
 	public void execute(JavaPlugin plugin, Player player, String container) {
+		if (!container.contains(";")) return;
+		
 		String[] parts = container.split(";", 4);
 		
 		Firework firework = player.getWorld().spawn(player.getLocation(), Firework.class);

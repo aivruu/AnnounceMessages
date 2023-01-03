@@ -27,6 +27,8 @@ implements ActionExecutable {
 	
 	@Override
 	public void execute(JavaPlugin plugin, Player player, String container) {
+		if (!container.contains(";")) return;
+		
 		String[] parts = container.split(";", 3);
 		
 		Optional<XPotion> optionalXPotion = XPotion.matchXPotion(parts[0]);

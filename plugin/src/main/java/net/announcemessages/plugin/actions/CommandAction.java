@@ -19,8 +19,9 @@ implements ActionExecutable {
 	
 	@Override
 	public void execute(JavaPlugin plugin, Player player, String container) {
-		String[] parts = container.split(";", 2);
+		if (!container.contains(";")) return;
 		
+		String[] parts = container.split(";", 2);
 		String command = TextUtils.colorize(parts[1]);
 		
 		switch (parts[0].toUpperCase()) {
