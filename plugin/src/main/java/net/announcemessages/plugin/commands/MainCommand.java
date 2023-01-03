@@ -3,10 +3,8 @@ package net.announcemessages.plugin.commands;
 import net.announcemessages.plugin.AnnounceMessages;
 import net.announcemessages.plugin.enums.Permissions;
 import net.announcemessages.plugin.util.LogUtils;
-import net.announcemessages.plugin.util.Utils;
 import net.xconfig.bukkit.config.BukkitConfigurationHandler;
 import net.xconfig.bukkit.config.BukkitConfigurationModel;
-import net.xconfig.bukkit.utils.TextUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,6 +12,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.Objects;
+
+import static net.announcemessages.plugin.util.Utils.playSound;
+import static net.xconfig.bukkit.utils.TextUtils.colorize;
 
 public class MainCommand
 implements CommandExecutor {
@@ -36,9 +37,9 @@ implements CommandExecutor {
 		
 		Player player = (Player) sender;
 		if (args.length == 0) {
-			player.sendMessage(prefix + TextUtils.colorize(" &a&lUPDATE: &eImprovements & Optimization!"));
-			player.sendMessage(prefix + TextUtils.colorize(" &fRunning on &a" + Bukkit.getServer().getBukkitVersion()));
-			player.sendMessage(prefix + TextUtils.colorize(" &fDeveloped by &aInitSync &7- &e" + AnnounceMessages.getPlugin().release));
+			player.sendMessage(prefix + colorize(" &a&lUPDATE: &eImprovements & Optimization!"));
+			player.sendMessage(prefix + colorize(" &fRunning on &a" + Bukkit.getServer().getBukkitVersion()));
+			player.sendMessage(prefix + colorize(" &fDeveloped by &aInitSync &7- &e" + AnnounceMessages.getPlugin().release));
 			return false;
 		}
 		
@@ -48,7 +49,7 @@ implements CommandExecutor {
 				break;
 			case "help":
 				if (!player.hasPermission(Permissions.COMMAND_LIST.getPermission())) {
-					Utils.playSound(
+					playSound(
 						 player,
 						 configurationHandler.text("", "config.yml", "config.sounds.permission", false),
 						 configurationHandler.number("", "config.yml", "config.sounds.volume"),
@@ -62,7 +63,7 @@ implements CommandExecutor {
 				break;
 			case "reload":
 				if (!player.hasPermission(Permissions.COMMAND_RELOAD.getPermission())) {
-					Utils.playSound(
+					playSound(
 						 player,
 						 configurationHandler.text("", "config.yml", "config.sounds.permission", false),
 						 configurationHandler.number("", "config.yml", "config.sounds.volume"),
@@ -76,7 +77,7 @@ implements CommandExecutor {
 					configurationManager.reload("", "config.yml");
 					configurationManager.reload("", "messages.yml");
 					
-					Utils.playSound(
+					playSound(
 						 player,
 						 configurationHandler.text("", "config.yml", "config.sounds.reload", false),
 						 configurationHandler.number("", "config.yml", "config.sounds.volume"),
@@ -93,7 +94,7 @@ implements CommandExecutor {
 					case "config":
 						configurationManager.reload("", "config.yml");
 						
-						Utils.playSound(
+						playSound(
 							 player,
 							 configurationHandler.text("", "config.yml", "config.sounds.reload", false),
 							 configurationHandler.number("", "config.yml", "config.sounds.volume"),
@@ -104,7 +105,7 @@ implements CommandExecutor {
 					case "messages":
 						configurationManager.reload("", "messages.yml");
 						
-						Utils.playSound(
+						playSound(
 							 player,
 							 configurationHandler.text("", "config.yml", "config.sounds.reload", false),
 							 configurationHandler.number("", "config.yml", "config.sounds.volume"),
