@@ -10,6 +10,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
 
+import static java.lang.Integer.parseInt;
+
 public class TitleAction
 implements ActionExecutable {
 	private final BukkitConfigurationHandler configurationHandler;
@@ -25,15 +27,17 @@ implements ActionExecutable {
 	
 	@Override
 	public void execute(JavaPlugin plugin, Player player, String container) {
+		if (!container.contains(";")) return;
+		
 		String[] parts = container.split(";", 5);
 		
 		int fadeIn;
 		int stay;
 		int fadeOut;
 		try {
-			fadeIn = Integer.parseInt(parts[2]);
-			stay = Integer.parseInt(parts[3]);
-			fadeOut = Integer.parseInt(parts[4]);
+			fadeIn = parseInt(parts[2]);
+			stay = parseInt(parts[3]);
+			fadeOut = parseInt(parts[4]);
 		} catch (NumberFormatException exception) {
 			LogUtils.error("Cannot parse the title time parameters because the values are not valid.");
 			if (configurationHandler.condition("", "config.yml", "config.debug-mode")) exception.printStackTrace();
