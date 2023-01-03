@@ -1,6 +1,5 @@
 package net.announcemessages.plugin.managers;
 
-import com.google.common.base.Preconditions;
 import net.announcemessages.api.actions.ActionContext;
 import net.announcemessages.api.actions.ActionExecutable;
 import net.announcemessages.api.managers.ActionManager;
@@ -12,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 public class SimpleActionManager
 implements ActionManager {
@@ -25,20 +26,18 @@ implements ActionManager {
 	
 	@Override
 	public void register(ActionContext context, ActionExecutable executable) {
-		Preconditions.checkNotNull(context, "The action context is null.");
-		Preconditions.checkNotNull(executable, "The action executable model is null.");
+		checkNotNull(context, "The action context is null.");
+		checkNotNull(executable, "The action executable model is null.");
 		
 		actions.put(context, executable);
 	}
 	
 	@Override
 	public void execute(Player player, List<String> containers) {
-		Preconditions.checkNotNull(player, "The player is null.");
-		Preconditions.checkNotNull(containers, "The actions list is null.");
+		checkNotNull(player, "The player is null.");
+		checkNotNull(containers, "The actions list is null.");
 		
 		for (String container : containers) {
-			if (!container.contains(";")) continue;
-			
 			actions.get(ActionContext.valueOf(StringUtils.substringBetween(container, "[", "]").toUpperCase()))
 				 .execute(plugin, player, container.contains(" ")
 					  ? container.split(" ", 2)[1]
