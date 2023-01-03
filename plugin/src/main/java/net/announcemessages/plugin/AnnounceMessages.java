@@ -77,6 +77,8 @@ extends JavaPlugin {
 		
 		info("Booting up plugin internal components...", "Developed by InitSync - " + release);
 		
+		new Metrics(plugin, 17280);
+		
 		configurationManager = XConfigBukkit.manager(plugin);
 		configurationHandler = XConfigBukkit.handler(configurationManager);
 		adaptManager = XTitle.newAdaptManager();
