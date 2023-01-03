@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabCompleter;
 
-import java.util.Objects;
+import static java.util.Objects.requireNonNull;
 
 public class CommandLoader {
 	private CommandLoader() {}
@@ -19,22 +19,22 @@ public class CommandLoader {
 		private TabCompleter completer;
 		
 		public Builder(AnnounceMessages plugin) {
-			this.plugin = Objects.requireNonNull(plugin, "The AnnounceMessages instance is null.");
+			this.plugin = requireNonNull(plugin, "The AnnounceMessages instance is null.");
 		}
 		
 		public Builder command(String commandName) {
-			this.commandName = Objects.requireNonNull(commandName, "The command name is null.");
+			this.commandName = requireNonNull(commandName, "The command name is null.");
 			Preconditions.checkArgument(!commandName.isEmpty(), "The command name is empty.");
 			return this;
 		}
 		
 		public Builder executor(CommandExecutor executor) {
-			this.executor = Objects.requireNonNull(executor, "The command executor is null.");
+			this.executor = requireNonNull(executor, "The command executor is null.");
 			return this;
 		}
 		
 		public Builder completer(TabCompleter completer) {
-			this.completer = Objects.requireNonNull(completer, "The tab completer is null.");
+			this.completer = requireNonNull(completer, "The tab completer is null.");
 			return this;
 		}
 		
