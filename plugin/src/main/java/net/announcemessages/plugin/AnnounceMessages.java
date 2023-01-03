@@ -79,6 +79,8 @@ extends JavaPlugin {
 			 "Developed by InitSync - " + release
 		);
 		
+		new Metrics(plugin, 17280);
+		
 		configurationManager = XConfigBukkit.manager(plugin);
 		configurationHandler = XConfigBukkit.handler(configurationManager);
 		adaptManager = XTitle.newAdaptManager();
