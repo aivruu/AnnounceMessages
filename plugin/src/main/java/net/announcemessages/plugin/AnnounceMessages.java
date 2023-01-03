@@ -19,7 +19,6 @@ import net.announcemessages.plugin.factories.LoaderFactory;
 import net.announcemessages.plugin.factories.ManagerFactory;
 import net.announcemessages.plugin.listeners.PlayerListener;
 import net.announcemessages.plugin.loaders.CommandLoader;
-import net.announcemessages.plugin.util.LogUtils;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.xconfig.bukkit.XConfigBukkit;
@@ -29,6 +28,8 @@ import net.xtitle.api.AdaptManager;
 import net.xtitle.api.TitleManager;
 import net.xtitle.lib.XTitle;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import static net.announcemessages.plugin.util.LogUtils.info;
 
 public final class AnnounceMessages
 extends JavaPlugin {
@@ -74,10 +75,7 @@ extends JavaPlugin {
 	public void onLoad() {
 		plugin = this;
 		
-		LogUtils.info(
-			 "Booting up plugin internal components...",
-			 "Developed by InitSync - " + release
-		);
+		info("Booting up plugin internal components...", "Developed by InitSync - " + release);
 		
 		configurationManager = XConfigBukkit.manager(plugin);
 		configurationHandler = XConfigBukkit.handler(configurationManager);
@@ -125,7 +123,7 @@ extends JavaPlugin {
 			 .from(new PlayerListener(configurationHandler, announceManager))
 			 .register();
 		
-		LogUtils.info(
+		info(
 			 "Enabled plugin successful in " + (System.currentTimeMillis() - startTime) + "ms.",
 			 "Running on " + getServer().getBukkitVersion(),
 			 "Developed by InitSync - " + release
@@ -137,21 +135,18 @@ extends JavaPlugin {
 				int currentRelease = Integer.parseInt(release.split("\\.", 2)[0]);
 				
 				if (latestRelease > currentRelease) {
-					LogUtils.info("There is a new update available: " + latestVersion);
+					info("There is a new update available: " + latestVersion);
 					return;
 				}
 				
-				if (latestRelease == currentRelease) LogUtils.info("There is not a new update pending.");
+				if (latestRelease == currentRelease) info("There is not a new update pending.");
 			});
 		}
 	}
 	
 	@Override
 	public void onDisable() {
-		LogUtils.info(
-			 "Disabling plugin components...",
-			 "Developed by InitSync - " + release
-		);
+		info("Disabling plugin components...", "Developed by InitSync - " + release);
 		
 		if (configurationManager != null) configurationManager = null;
 		if (configurationHandler != null) configurationHandler = null;
