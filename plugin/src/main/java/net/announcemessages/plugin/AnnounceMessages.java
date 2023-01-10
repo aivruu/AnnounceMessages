@@ -24,9 +24,9 @@ import net.luckperms.api.LuckPermsProvider;
 import net.xconfig.bukkit.XConfigBukkit;
 import net.xconfig.bukkit.config.BukkitConfigurationHandler;
 import net.xconfig.bukkit.config.BukkitConfigurationModel;
-import net.xtitle.api.AdaptManager;
 import net.xtitle.api.TitleManager;
-import net.xtitle.lib.XTitle;
+import net.xtitle.api.XTitle;
+import net.xtitle.api.adapt.AdaptManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import static net.announcemessages.plugin.util.LogUtils.info;
@@ -132,7 +132,7 @@ extends JavaPlugin {
 		);
 		
 		if (configurationHandler.condition("", "config.yml", "config.notify")) {
-			HandlerFactory.newUpdateHandler(configurationHandler, 98941).check(latestVersion -> {
+			HandlerFactory.newUpdateHandler(98941).check(latestVersion -> {
 				int latestRelease = Integer.parseInt(latestVersion.split("\\.", 2)[0]);
 				int currentRelease = Integer.parseInt(release.split("\\.", 2)[0]);
 				
