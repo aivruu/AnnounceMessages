@@ -17,6 +17,18 @@ config:
     # Sounds Volume Level
     volume: 1
 
+  tab-list:
+    # Do you want to use the tab-list feature?
+    allow: true
+
+    # TabList Header Text.
+    # Use '<br>' for line jumps.
+    header: "<br>&8- &bServerName &fNetwork &8-<br><br>&7Current players online: &e%server_online%<br>"
+
+    # TabList Footer Text.
+    # Use '<br>' for line jumps.
+    footer: "<br>&7Get Support: &9discord.io/servernament<br><br>&aOur IP: &emc.yourServer.net"
+
   announcements:
     # Allow send the motd message?
     allow-motd: true
