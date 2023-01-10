@@ -1,6 +1,7 @@
 package net.announcemessages.plugin.listeners;
 
 import net.announcemessages.api.managers.AnnounceManager;
+import net.announcemessages.plugin.util.Utils;
 import net.xconfig.bukkit.config.BukkitConfigurationHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,6 +24,14 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
+		
+		if (configurationHandler.condition("", "config.yml", "config.tab-list.allow")) {
+			Utils.sendTabList(
+				 player,
+				 configurationHandler.text("", "config.yml", "config.tab-list.footer", false),
+				 configurationHandler.text("", "config.yml", "config.tab-list.header", false)
+			);
+		}
 		
 		event.setJoinMessage(announceManager.getJoinMessage(player));
 		
