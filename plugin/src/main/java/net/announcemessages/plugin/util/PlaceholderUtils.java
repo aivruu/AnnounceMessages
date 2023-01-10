@@ -14,8 +14,8 @@ public class PlaceholderUtils {
 	public static String parse(Player player, String text) {
 		Preconditions.checkNotNull(player, "The player is null.");
 		
-		if (!PLACEHOLDERS) return text;
+		if (!PLACEHOLDERS) return text.replace("<br>", "\n");
 		
-		return PlaceholderAPI.setPlaceholders(player, text);
+		return PlaceholderAPI.setPlaceholders(player, text.replace("<br>", "\n"));
 	}
 }
