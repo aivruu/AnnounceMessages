@@ -25,7 +25,7 @@ dependencies {
 	
 	implementation(project(":api"))
 	implementation("com.github.InitSync.XConfig:bukkit:1.1.3")
-	implementation("com.github.InitSync:XTitle:1.0.1")
+	implementation("com.github.InitSync:XTitle:1.0.3")
 }
 
 bukkit {
